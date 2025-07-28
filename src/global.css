@@ -1,0 +1,108 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f8f5f0;
+  color: #2d1b0e;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #2d1b0e;
+  margin-bottom: 0.5em;
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: #bfa14a;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #a88c3d;
+}
+
+button {
+  font-family: inherit;
+  background: linear-gradient(90deg, #bfa14a 0%, #a88c3d 100%);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 0.7em 2em;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(191,161,74,0.08);
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  letter-spacing: 0.03em;
+}
+button:hover {
+  background: linear-gradient(90deg, #2d1b0e 0%, #bfa14a 100%);
+  color: #fffbe6;
+  box-shadow: 0 4px 24px rgba(191,161,74,0.15);
+}
+
+input, select, textarea {
+  font-family: inherit;
+  border: 1.5px solid #bfa14a;
+  border-radius: 12px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  margin-bottom: 1.2em;
+  background: #fffbe6;
+  color: #2d1b0e;
+  transition: border 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #2d1b0e;
+  outline: none;
+}
+
+.container {
+  max-width: 800px;
+  margin: 3em auto;
+  background: #fffbe6;
+  border-radius: 24px;
+  box-shadow: 0 8px 48px rgba(45,27,14,0.07);
+  padding: 3em 3.5em;
+  border: 1.5px solid #bfa14a;
+}
+
+.lux-btn {
+  display: inline-block;
+  padding: 0.7em 2.2em;
+  border-radius: 24px;
+  font-size: 1.1em;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(191,161,74,0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+  border: none;
+  margin: 0 0.5em;
+  cursor: pointer;
+}
+.lux-btn-gold {
+  background: linear-gradient(90deg, #bfa14a 0%, #a88c3d 100%);
+  color: #fffbe6;
+  border: 1.5px solid #bfa14a;
+}
+.lux-btn-gold:hover {
+  background: linear-gradient(90deg, #2d1b0e 0%, #bfa14a 100%);
+  color: #fffbe6;
+  border: 1.5px solid #2d1b0e;
+}
+.lux-btn-dark {
+  background: #2d1b0e;
+  color: #fffbe6;
+  border: 1.5px solid #2d1b0e;
+}
+.lux-btn-dark:hover {
+  background: #bfa14a;
+  color: #2d1b0e;
+  border: 1.5px solid #bfa14a;
+} 
