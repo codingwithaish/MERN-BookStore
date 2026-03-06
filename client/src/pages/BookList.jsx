@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { api } from "../api";
 import "./BookList.css";
 
 function BookList() {
@@ -9,15 +9,15 @@ function BookList() {
 
   //this is delete book button click handler
   const deleteBook = (id) => {
-    axios.delete("http://localhost:8080/books/" + id).then(() => {
+    api.delete(`/books/${id}`).then(() => {
       //update home page view i.e after deletion remove from array
       setBooks(books.filter((b) => b._id !== id));
     });
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/books")
+    api
+      .get("/books")
       .then((res) => {
         setBooks(res.data);
       })

@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { api } from "../api";
 
 function EditBook() {
   const { id } = useParams();   //get params
@@ -17,8 +17,8 @@ function EditBook() {
 
   //Get the book details and setBook
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/books/" + id)
+    api
+      .get(`/books/${id}`)
       .then((res) => setBook(res.data));
   }, [id]);
 
@@ -35,7 +35,7 @@ function EditBook() {
     //to prevent page refresh by browser
     e.preventDefault();
     //to update books using put api
-    axios.put("http://localhost:8080/books/" + id, book).then(() => {
+    api.put(`/books/${id}`, book).then(() => {
       alert("Book updated");
       // go back to home page
       navigate("/");

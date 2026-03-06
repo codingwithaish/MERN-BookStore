@@ -1,6 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { api } from "../api";
 
 function AddBook() {
   const [book, setBook] = useState({ title: "", author: "", price: "" });
@@ -20,8 +20,8 @@ function AddBook() {
       alert("Please fill in all fields");
       return;
     }
-    axios
-      .post("http://localhost:8080/books/", book)  //pass JSON book
+    api
+      .post("/books", book)  //pass JSON book
       .then(() => {
         alert("Book added successfully");
         navigate("/");

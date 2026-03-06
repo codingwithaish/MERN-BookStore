@@ -1,15 +1,23 @@
-//Node JS express configurations
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
+
 const app = express();
 
-//middleware
-app.use(cors());
-app.use(express.json());
+const PORT = process.env.PORT || 8080;
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/bookstore";
+const CORS_ORIGIN = process.env.CORS_ORIGIN || "*";
 
-//connect to bookstore db
-mongoose.connect("mongodb://localhost:27017/bookstore");
+const corsOptions =
+  CORS_ORIGIN === "*"
+    ? {}
+    : {
+        origin: CORS_ORIGIN.split(",").map((origin) => origin.trim()),
+      };
+
+app.use(cors(corsOptions));
+app.use(express.json());
 
 const bookSchema = new mongoose.Schema({
   title: String,
@@ -70,5 +78,18 @@ app.delete("/books/:id", async (req, res) => {
   }
 });
 
-app.listen(8080, () => console.log("Backend running on http://localhost:8080"));
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
 
+mongoose
+  .connect(MONGO_URI)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Backend running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("MongoDB connection failed:", err.message);
+    process.exit(1);
+  });
